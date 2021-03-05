@@ -107,6 +107,28 @@ body {
   color: #6d708d;
 }
 
+@media only screen and (min-width: 768px) {
+  .card {
+    display: none;
+  }
+  .card:nth-child(1), .card:nth-child(3) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .card-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
 @media only screen and (min-width: 992px) {
   .card-wrapper {
     display: -webkit-box;
@@ -127,23 +149,6 @@ body {
   }
   body {
     background-color: white;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .card:nth-of-type(even) {
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .card-wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
   }
 }
 

@@ -90,6 +90,24 @@ body{
     }
 }
 
+
+@media only screen and (min-width: 768px ){
+    .card {
+        display: none;
+        &:nth-child(1), &:nth-child(3){
+            display: flex;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .card-wrapper{
+        display: flex;
+        justify-content: center;
+    }
+}
+
 //Versión escritorio 
 @media only screen and ( min-width: 992px ){
 
@@ -110,25 +128,6 @@ body{
         background-color: white;
     }
 }
-
-
-@media only screen and (min-width: 768px ){
-    .card {
-        &:nth-of-type(even){
-            display: none;
-        }
-    }
-
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px){
-    .card-wrapper{
-        display: flex;
-        justify-content: center;
-    }
-}
-
-
 
 /*
 - a partir de 768px, sólo se vean la 1a y la 3er card -> ya
