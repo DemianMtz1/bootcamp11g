@@ -1,10 +1,21 @@
 @import url("https://fonts.google.com/specimen/Poppins");
+/*Variables*/
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 h5 {
   font-weight: bold !important;
+}
+
+h3 {
+  color: #a3a5ae;
+  line-height: 1.5;
+}
+
+h3 span {
+  font-weight: bold;
+  color: #4c4e61;
 }
 
 p {
@@ -12,24 +23,24 @@ p {
   font-size: 15px;
 }
 
-.card p {
-  font-size: 12px;
-}
-
 /*Utilities*/
 .border-top-cyan {
+  border-radius: 8px;
   border-top: 5px solid #45d3d3 !important;
 }
 
 .border-top-red {
+  border-radius: 8px;
   border-top: 5px solid #ea5353 !important;
 }
 
 .border-top-orange {
+  border-radius: 8px;
   border-top: 5px solid #fcaf4a !important;
 }
 
 .border-top-blue {
+  border-radius: 8px;
   border-top: 5px solid #549ef2 !important;
 }
 /*# sourceMappingURL=styles.css.map */
