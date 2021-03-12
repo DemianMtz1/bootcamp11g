@@ -1,0 +1,33 @@
+@import url('https://fonts.google.com/specimen/Poppins');
+body{
+    font-family: 'Poppins', sans-serif;
+}
+h5 {
+  font-weight: bold !important;
+}
+p {
+  color: hsl(229, 6%, 66%);
+  font-size: 15px;
+}
+
+.card {
+  p {
+    font-size: 12px;
+  }
+}
+/*Utilities*/
+
+.border-top- {
+  &cyan {
+    border-top: 5px solid hsl(180, 62%, 55%) !important;
+  }
+  &red {
+    border-top: 5px solid hsl(0, 78%, 62%) !important;
+  }
+  &orange {
+    border-top: 5px solid hsl(34, 97%, 64%) !important;
+  }
+  &blue {
+    border-top: 5px solid hsl(212, 86%, 64%) !important;
+  }
+}
