@@ -34,12 +34,15 @@ function continueAdding() {
 function kodersForm() {
     let totalKoders = continueAdding();
     let removeKodersQs = prompt(`Tienes ${totalKoders.length} Koders registrados deseas remover alguno? Y/n`);
+    let randomNumber = 0, arrFilter = [];
     if (removeKodersQs == 'Y' || removeKodersQs == 'y') {
-        totalKoders.pop();
-        console.log('Listo se elimino el ultimo Koder agregado...');
+        randomNumber = Math.floor(Math.random() * totalKoders.length)
+        arrFilter = totalKoders.filter((koder,idx) => idx !== randomNumber);
+        console.log(`Listo se elimino el koder ${randomNumber}`);
     }
-    console.log(totalKoders);
-    return totalKoders;
+    console.log(arrFilter);
+    return arrFilter;
 
 }
-kodersForm()
+
+//kodersForm();
