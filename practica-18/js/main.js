@@ -1,7 +1,5 @@
-/*https://ajaxclass-1ca34.firebaseio.com/11g/{su_nombre}/mentors.json  */
-
-
 /*
+https://ajaxclass-1ca34.firebaseio.com/11g/{su_nombre}/mentors.json
 nuevo mentor - CRUD APP
 newObject = {
     name,
@@ -38,8 +36,6 @@ const getMentors = () => {
     xhttp.send();
 
 }
-
-
 
 const postMentorByClick = () => {
     let buttonNode = document.querySelector('#addMentorBtn');
