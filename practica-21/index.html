@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <form class="w-100">
+            <label for="cuadrado" class="d-flex"
+              >Cuadrado
+              <input
+                class="form-check-input"
+                id="cuadrado"
+                name="boton"
+                type="radio"
+                tabindex="1"
+              />
+            </label>
+
+            <label for="rectangulo" class="d-flex"
+              >Rectángulo
+              <input
+                class="form-check-input"
+                id="rectangulo"
+                name="boton"
+                type="radio"
+                tabindex="2"
+              />
+            </label>
+            <label for="circulo" class="d-flex"
+              >Círculo
+              <input
+                class="form-check-input"
+                id="circulo"
+                name="boton"
+                type="radio"
+                tabindex="3"
+              />
+            </label>
+          </form>
+          <div id="figure"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slideshow-container mt-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 d-flex">
+            <button id="prev" class="btn btn-outline-secondary">
+              &#10094;
+            </button>
+            <img
+              id="image"
+              alt="perro-1"
+              style="width: 100%; height: 500px"
+              data-accum="0"
+            />
+            <button id="next" class="btn btn-outline-secondary">
+              &#10095;
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/ejercicios.js"></script>
+  </body>
+</html>
