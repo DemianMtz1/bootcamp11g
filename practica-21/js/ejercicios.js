@@ -52,7 +52,6 @@ const createCarousellComponent = arr => {
             case 'prev':
                 imageAccum === 0 ? imageAccum : imageAccum -= 1;
                 image.attr('src', arr[imageAccum].url);
-
                 break;
 
             case 'next':

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container bg-dark p-3 mt-1">
+      <div class="row">
+        <div id="form-mentors" class="col-12">
+          <h1 class="font-weight-bold text-white">Formulario mentores</h1>
+          <form>
+            <div class="form-group">
+              <label for="name" class="text-white">Nombre del mentor:</label>
+              <input id="name" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="age" class="text-white">Edad del mentor:</label>
+              <input id="age" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="phone" class="text-white">Telefono del mentor:</label>
+              <input id="phone" type="text" class="form-control" />
+            </div>
+            <button
+              id="btn-add"
+              type="button"
+              class="btn btn-success w-100 text-white font-weight-bold py-2 mt-2"
+            >
+              <span>+</span> Agregar mentor
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="dropdown-divider"></div>
+
+      <div class="row">
+        <div id="card-wrapper" class="col-12">
+          <h1 class="font-weight-bold text-white">Mentores</h1>
+        </div>
+      </div>
+    </div>
+
+    <!--MODAL-->
+    <div id="myModal" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title">Editar Mentor</h1>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form class="modal-body mentors">
+            <div class="form-group">
+              <label>Nombre del mentor:</label>
+              <input type="text" class="form-control" id="nameMod" />
+            </div>
+            <div class="form-group">
+              <label>Edad del mentor:</label>
+              <input type="text" class="form-control" id="ageMod" />
+            </div>
+            <div class="form-group">
+              <label>Telefono del mentor:</label>
+              <input type="text" class="form-control" id="phoneMod" />
+            </div>
+            <button
+              id="btn-mod"
+              type="button"
+              class="btn btn-success w-100 text-white font-weight-bold py-2 mt-2"
+            >
+              Modificar mentor
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
