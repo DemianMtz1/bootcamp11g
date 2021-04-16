@@ -16,30 +16,33 @@ const validateInfo = data => {
         return false;
     }
 }
-
+const printData = obj => {
+    
+    Object.entries(obj).forEach(currentMentor => {
+        let { age, name, phone } = currentMentor[1];
+        let cardMentor =
+            `<div id=${currentMentor[0]} class="card my-2">
+                <div class="card-body">
+                    <div class="card-title"><b>Mentor</b>: ${name}</div>
+                    <div class="dropdown-divider"></div>
+                    <div class="card-text"><b>Edad</b>:${age}</div>
+                    <div class="card-text"><b>Telefono</b>:${phone}</div>
+                </div>
+                <div class="d-flex w-100 justify-content-between btn-group-mentors">
+                    <button type="button" class="btn-modify btn btn-outline-secondary font-weight-bold py-2 mt-2 " id=${currentMentor[0]}>Editar mentor</button>
+                    <button type="button" class="btn-delete btn btn-danger text-white font-weight-bold py-2 mt-2 " id=${currentMentor[0]}>Eliminar mentor</button>
+                </div>
+            </div>`;
+        $('#card-wrapper').append(cardMentor);
+    });
+}
 
 const getData = () => {
     $.ajax({
         method: "GET",
         url: "https://ajaxclass-1ca34.firebaseio.com/11g/demian/mentors.json",
         success: response => {
-            Object.entries(response).forEach(currentMentor => {
-                let { age, name, phone } = currentMentor[1];
-                let cardMentor =
-                    `<div id=${currentMentor[0]} class="card my-2">
-                        <div class="card-body">
-                            <div class="card-title"><b>Mentor</b>: ${name}</div>
-                            <div class="dropdown-divider"></div>
-                            <div class="card-text"><b>Edad</b>:${age}</div>
-                            <div class="card-text"><b>Telefono</b>:${phone}</div>
-                        </div>
-                        <div class="d-flex w-100 justify-content-between btn-group-mentors">
-                            <button type="button" class="btn-modify btn btn-outline-secondary font-weight-bold py-2 mt-2 " id=${currentMentor[0]}>Editar mentor</button>
-                            <button type="button" class="btn-delete btn btn-danger text-white font-weight-bold py-2 mt-2 " id=${currentMentor[0]}>Eliminar mentor</button>
-                        </div>
-                    </div>`;
-                $('#card-wrapper').append(cardMentor)
-            });
+            printData(response);
         },
         error: error => {
             console.log(error)
@@ -102,12 +105,12 @@ const newMentor = () => {
         if (validateInfo(newMentor.name) || validateInfo(newMentor.age) || validateInfo(newMentor.phone)) {
             alert('Favor de rellenar los campos vacios');
         } else {
-            //console.log(newMentor)
             postMentors(newMentor);
-            alert('Mentor agregado...')
             $.each(inputTextGroup, (idx, mentorIn) => {
                 mentorIn.value = ""
             });
+            $('#card-wrapper').children().remove();
+            getData()
         }
     });
 }
@@ -138,8 +141,8 @@ const modifyMentor = () => {
                 mentor = { ...mentor, [mentorIn.id]: mentorIn.value };
             });
             let newMentor = {
-                name:mentor.nameMod,
-                age:mentor.ageMod,
+                name: mentor.nameMod,
+                age: mentor.ageMod,
                 phone: mentor.phoneMod,
             }
             if (validateInfo(newMentor.name) || validateInfo(newMentor.age) || validateInfo(newMentor.phone)) {
@@ -150,6 +153,8 @@ const modifyMentor = () => {
                 $.each(inputMentorsGroup, (idx, mentorIn) => {
                     mentorIn.value = ""
                 });
+                $('#card-wrapper').children().remove()
+                getData();
             }
         });
     });
