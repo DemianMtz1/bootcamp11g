@@ -75,6 +75,7 @@ const selectUsers = usersCollection => {
         if(idx==0){
             optionHtml = `<option value=${userId} selected>${username}</option>`
             $('#img-avatar').attr('src', avatar)
+            $('#data-load').attr('value',JSON.stringify(usersCollection[key]));
         }else {
             optionHtml = `<option value=${userId}>${username}</option>`
         }
@@ -88,11 +89,13 @@ selectUsers(getUser());
 
 $('#save-user-modal').click(()=>{
     let userId = $('#users option:selected').val()
-    //console.log(userId)
+    
+    console.log(userId)
     let filteredUser = filteredById(userId);
     const { avatar } = filteredUser;
     $('#img-avatar').attr('src', avatar)
     $('#change-user-modal').modal('hide')
+    $('#data-load').attr('data-user',JSON.stringify(filteredUser));
 })
 
 const filteredById = userId => {

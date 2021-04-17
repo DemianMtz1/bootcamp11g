@@ -2,14 +2,60 @@
 $('#change-user').click(() => {
   $('#change-user-modal').modal("show")
 })
-let defaultUser = { name: "Israel", id: 007 };
+let defaultUser;
 
 //console.log($('#users'));
 /*
+
 $("body").load("views/NewUsers.html", ()=> {
     $("h1").text("texto modificado en el callback")
-})
-*/
+  })
+  $("body").load("views/Nav.html", ()=>{
+    console.log('Data load...')
+  })
+  $("#get-data").load('views/NewUsers.html #load-users', response=> {
+    $('#get-data').attr('data-users', $('#load-users').val())
+    console.log($('#load-users').val())
+  })
+  */
+ /* USERS*/
+const getUserData = () => {
+  let usersCollection;
+
+  $.ajax({
+      method: "GET",
+      url: "https://ajaxclass-1ca34.firebaseio.com/11g/drinktim/users.json",
+      success: (response) => {
+          usersCollection = response;
+      },
+      error: (error) => {
+          console.log(error);
+      },
+      async: false,
+  });
+  return usersCollection;
+};
+
+const selectedUserData = () => {
+  let selectedId = $('#users option:selected').val();
+  let usersArr = getUserData();
+  //console.log(filteredUsersById(selectedId,usersArr))
+  return filteredUsersById(selectedId,usersArr);
+
+}
+
+$('#save-user-modal').click(()=>{
+  selectedUserData();
+  defaultUser = selectedUserData();
+});
+
+const filteredUsersById = (userId, data) => {
+  let selectedUser = Object.values(getUser()).find(user => user.userId == userId);
+  return selectedUser;
+}
+
+
+//console.log(defaultUser)
 
 //--------------- NUEVO ---------------
 const showComments = (event) => {
@@ -54,7 +100,8 @@ const validateInfo = (data) => {
 };
 
 const setPost = () => {
-  const { name, id } = defaultUser;
+  const { username, id } = defaultUser;
+  
 
   let newPost = {};
   $('#new-post input[type="text"]').each(function () {
@@ -114,6 +161,7 @@ const getReplies = () => {
     },
     async: false,
   });
+  console.log(repliesCollection)
   return repliesCollection;
 };
 
@@ -122,13 +170,14 @@ const addComment = (event) => {
   let replyInput;
 
   let replyObj = {
-    author: defaultUser.name,
-    authorId: defaultUser.id,
+    author: defaultUser.username,
+    authorId: defaultUser.userId,
+    avatar: defaultUser.avatar,
     time: moment().format("LTS"),
     date: moment().format("DD/MMMM/YYYY"),
     postId: id,
   };
-
+  console.log(replyObj)
   repliesWrapper.each(function () {
     if (id == this.dataset.postId) {
       replyInput = $(`input[data-reply-id='${id}']`);
@@ -147,17 +196,19 @@ const addComment = (event) => {
 
 const printReplies = (repliesCollection) => {
   repliesWrapper.children().remove();
-
+  console.log(repliesCollection)
   for (key in repliesCollection) {
-    const { author, authorId, content, date, postId, time } = repliesCollection[
+    const { author, authorId, content, date, postId, time, avatar } = repliesCollection[
       key
     ];
+
+
 
     let reply = `
           <li class="list-group-item">
               <div class="reply-box">
                 <div class="d-flex align-items-center">
-                  <img class="rounded-circle mr-2" style="height: 40px; width: 40px;" src="img/choppa.png" alt="user-img">
+                  <img class="rounded-circle mr-2" style="height: 40px; width: 40px;" src=${avatar} alt="user-img">
                   <h3 class="font-weight-bold"><span>${author}</span></h3>
                 </div>
                   <p class="mt-3 font-italic" >${content}</p>
@@ -268,3 +319,4 @@ repliesWrapper.each(function () {
 $(".btn-see-more").click(showComments);
 
 //--------- FIN NUEVO -------
+
