@@ -43,7 +43,6 @@ const selectedUserData = () => {
   return filteredUsersById(selectedId,usersArr);
 
 }
-
 $('#save-user-modal').click(()=>{
   selectedUserData();
   defaultUser = selectedUserData();
@@ -53,6 +52,7 @@ const filteredUsersById = (userId, data) => {
   let selectedUser = Object.values(getUser()).find(user => user.userId == userId);
   return selectedUser;
 }
+defaultUser = selectedUserData();
 
 
 //console.log(defaultUser)
