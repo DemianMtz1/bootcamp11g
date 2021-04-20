@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <title>Pet</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <p class="navbar-brand">Adopt.me</p>
+
+      <div>
+        <a href="index.html" class="text-white">Pets</a>
+        <a href="views/NewPet.html" class="text-white mx-5">Add pets</a>
+        <a href="views/NewOwner.html" class="text-white">Add owners</a>
+      </div>
+      <div class="d-flex align-items-center">
+        <select id='select-user' class="custom-select mr-3">
+        </select>
+        <img
+          id="img-avatar-owner"
+          class="rounded-circle"
+          style="height: 50px; width: 50px"
+          alt="user-img"
+        />
+      </div>
+    </nav>
+
+    <div class="container container-fluid">
+      <div class="row mt-3 mb-4">
+        <div class="col-12">
+          <h1 class="font-weight-bold">Adoptar mascotas</h1>
+          <div class="form-group">
+            <p class="font-weight-bold">Filtrar por disponibilidad</p>
+            <select id='filter-pets' class="custom-select w-50">
+              <option value="all" selected>Todos</option>
+              <option value="owned">Adoptado</option>
+              <option value="available">Disponible</option>
+            </select>
+          </div>
+        </div>
+        <div id="pets-wrapper" class="col-12 d-flex flex-wrap">
+
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/owners.js"></script>
+    <script src="js/pets.js"></script>
+  </body>
+</html>
