@@ -198,10 +198,10 @@ const adoptPetClick = ev => {
             petKey = key
         }
     }
-    console.log(petKey)
+    console.log(petKey);
     putPet(petKey, selectedPet);
-    $('#pets-wrapper').children().remove()
-    printPets(getPet())
+    $('#pets-wrapper').children().remove();
+    //printPets(getPet());
     
 }
 
@@ -220,7 +220,7 @@ const printPets = pets => {
             />
             <div class="card-body h-50">
             <p class="card-text font-weight-bold">Nombre de la mascota: <span class="font-weight-light text-muted">${pets[key].namePet}<span></p>
-            <p class="card-text text-uppercase font-weight-bold">Raza: <span class="font-weight-light text-muted">${pets[key].race}<span></p>
+            <p class="card-text font-weight-bold">Raza: <span class="font-weight-light text-muted">${pets[key].race}<span></p>
             <div class="adopt-wrapper" data-pet-id=${pets[key].petId}>
                 ${
                     pets[key].ownerId == undefined ?
@@ -230,13 +230,13 @@ const printPets = pets => {
                     data-pet-id=${pets[key].petId}
                     type="button"
                     href="#"
-                    class="btn btn-primary adopt-pet-btn"
+                    class="btn btn-outline-secondary adopt-pet-btn"
                     >
                         Adoptar
                     </button>
                     `:
                     `
-                    <p class="card-text text-uppercase font-weight-bold">Dueño: <span class="font-weight-light text-muted">${getOwnerById(pets[key].ownerId, getOwner())}<span></p>
+                    <p class="card-text font-weight-bold">Dueño: <span class="font-weight-light text-muted">${getOwnerById(pets[key].ownerId, getOwner())}<span></p>
                     `
                 }
             </div>

@@ -17,13 +17,12 @@
       <p class="navbar-brand">Adopt.me</p>
 
       <div>
-        <a href="index.html" class="text-white">Pets</a>
+        <a href="index.html" class="text-white font-weight-bold">Pets</a>
         <a href="views/NewPet.html" class="text-white mx-5">Add pets</a>
         <a href="views/NewOwner.html" class="text-white">Add owners</a>
       </div>
       <div class="d-flex align-items-center">
-        <select id='select-user' class="custom-select mr-3">
-        </select>
+        <select id="select-user" class="custom-select mr-3"></select>
         <img
           id="img-avatar-owner"
           class="rounded-circle"
@@ -39,16 +38,14 @@
           <h1 class="font-weight-bold">Adoptar mascotas</h1>
           <div class="form-group">
             <p class="font-weight-bold">Filtrar por disponibilidad</p>
-            <select id='filter-pets' class="custom-select w-50">
+            <select id="filter-pets" class="custom-select w-50">
               <option value="all" selected>Todos</option>
               <option value="owned">Adoptado</option>
               <option value="available">Disponible</option>
             </select>
           </div>
         </div>
-        <div id="pets-wrapper" class="col-12 d-flex flex-wrap">
-
-        </div>
+        <div id="pets-wrapper" class="col-12 d-flex flex-wrap"></div>
       </div>
     </div>
 
